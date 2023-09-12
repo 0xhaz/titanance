@@ -1,4 +1,4 @@
-{
+export const CONFIG = {
     "titananceToken": {
         "name": "TitananceToken",
         "symbol": "TI",

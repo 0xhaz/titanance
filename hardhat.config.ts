@@ -1,28 +1,32 @@
-require("dotenv").config();
+import * as dotenv from "dotenv";
 
-require("@nomiclabs/hardhat-etherscan");
-require("@nomiclabs/hardhat-waffle");
-require("@nomiclabs/hardhat-solhint");
-require("@nomiclabs/hardhat-web3");
-require("hardhat-gas-reporter");
-require("solidity-coverage");
-require("hardhat-contract-sizer");
-require("hardhat-tracer");
-require("@primitivefi/hardhat-dodoc");
-require("hardhat-deploy");
-require("hardhat-deploy-ethers");
-require("hardhat-spdx-license-identifier");
+// Load .env file
+dotenv.config();
+
+
+import "@nomiclabs/hardhat-etherscan";
+import "@nomiclabs/hardhat-waffle";
+import "@nomiclabs/hardhat-solhint";
+import "@nomiclabs/hardhat-web3";
+import "hardhat-gas-reporter";
+import "solidity-coverage";
+import "hardhat-contract-sizer";
+import "hardhat-tracer";
+import "@primitivefi/hardhat-dodoc";
+import "hardhat-deploy";
+import "hardhat-deploy-ethers";
+import "hardhat-spdx-license-identifier";
 
 // const infuraProjectId = process.env.INFURA_PROJECT_ID;
 // console.log(`infuraProjectId: ${infuraProjectId}`);
 
-
+import "./tasks/deployToken";
 
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more4
 
 
-function getMnemonic(networkName) {
+function getMnemonic(networkName:any=undefined) {
     if (networkName) {
         const mnemonic = process.env['MNEMONIC_' + networkName.toUpperCase()]
         if (mnemonic && mnemonic !== '') {
@@ -38,7 +42,7 @@ function getMnemonic(networkName) {
     return mnemonic
 }
 
-function accounts(chainKey) {
+function accounts(chainKey: any=undefined) {
     return { mnemonic: getMnemonic(chainKey) }
 }
 
@@ -75,26 +79,14 @@ module.exports = {
             chainId: 1,
             accounts: accounts(),
         },
-
-        avalanche: {
-            url: "https://api.avax.network/ext/bc/C/rpc",
-            chainId: 43114,
-            accounts: accounts(),
-        },
-
-        rinkeby: {
-            url: "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161", // public infura endpoint
-            chainId: 4,
+        goerli: {
+            url: "https://ethereum-goerli.publicnode.com", // public infura endpoint
+            chainId: 5,
             accounts: accounts(),
         },
         'bsc-testnet': {
             url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
             chainId: 97,
-            accounts: accounts(),
-        },
-        fuji: {
-            url: `https://api.avax-test.network/ext/bc/C/rpc`,
-            chainId: 43113,
             accounts: accounts(),
         },
         mumbai: {
@@ -110,11 +102,6 @@ module.exports = {
         'optimism-kovan': {
             url: `https://kovan.optimism.io/`,
             chainId: 69,
-            accounts: accounts(),
-        },
-        'fantom-testnet': {
-            url: `https://rpc.testnet.fantom.network/`,
-            chainId: 4002,
             accounts: accounts(),
         }
     },
