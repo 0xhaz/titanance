@@ -20,6 +20,7 @@ contract OmnichainFungibleToken is ERC20, Ownable, ILayerZeroReceiver, ILayerZer
     mapping(uint16 => bytes) public dstContractLookup; // a map of the connected contracts
     bool public paused; // indicates cross chain transfers are paused
     bool public isMain; // indicates this contract is on the main chain
+    uint16 __mainChainId;
 
     event Paused(bool isPaused);
     event SendToChain(uint16 srcChainId, bytes toAddress, uint256 qty, uint64 nonce);
@@ -34,6 +35,7 @@ contract OmnichainFungibleToken is ERC20, Ownable, ILayerZeroReceiver, ILayerZer
     ) ERC20(_name, _symbol) {
         // only mint the total supply on the main chain
         _mint(msg.sender, _initialSupplyOnMainEndpoint);
+        __mainChainId = _mainChainId;
         isMain = true;
         // set the LayerZero endpoint
         endpoint = ILayerZeroEndpoint(_endpoint);
