@@ -1,15 +1,16 @@
-# Basic Sample Hardhat Project
+# Titanance - a multi-chain native asset bridge, aggregator liquidity
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+![logo logoGif](https://app.titanance.com/logo.gif)
 
-Try running some of the following tasks:
+
+##Compile Contracts:
 
 ```shell
-npx hardhat accounts
 npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+```
+
+##Deploy token:
+
+```shell
+npx hardhat deployToken --chain goerli --name Titanance --symbol TI
 ```
