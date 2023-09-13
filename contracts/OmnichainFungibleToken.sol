@@ -33,10 +33,8 @@ contract OmnichainFungibleToken is ERC20, Ownable, ILayerZeroReceiver, ILayerZer
         uint256 _initialSupplyOnMainEndpoint
     ) ERC20(_name, _symbol) {
         // only mint the total supply on the main chain
-        if (ILayerZeroEndpoint(_endpoint).getChainId() == _mainChainId) {
-            _mint(msg.sender, _initialSupplyOnMainEndpoint);
-            isMain = true;
-        }
+        _mint(msg.sender, _initialSupplyOnMainEndpoint);
+        isMain = true;
         // set the LayerZero endpoint
         endpoint = ILayerZeroEndpoint(_endpoint);
     }
