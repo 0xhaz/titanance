@@ -1,8 +1,5 @@
 # Titanance - a multi-chain native asset bridge, aggregator liquidity
 
-![logo logoGif](https://app.titanance.com/logo.gif)
-
-
 ##Compile Contracts:
 
 ```shell
