@@ -18,7 +18,7 @@ task("deployToken", "deploy a Cross Chain token")
             const { url } = hre.config.networks[item] as any;
             const lzChainId = testnetAddress[item].chainId
             const lzEndpoint = testnetAddress[item].endpoint
-            console.log(`  -> -> -> TitananceToken needs LayerZero: ${item} LayerZeroId: ${lzChainId} LayerZeroEndpoint: ${lzEndpoint}`)
+            console.log(`  -> -> -> ${taskArgs.name} needs LayerZero: ${item} LayerZeroId: ${lzChainId} LayerZeroEndpoint: ${lzEndpoint}`)
             const provider = new ethers.providers.JsonRpcProvider(url);
             const gas = await provider.getGasPrice()
             let mnemonicWallet = ethers.Wallet.fromMnemonic(process.env.MNEMONIC as string);
