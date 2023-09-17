@@ -632,6 +632,22 @@ event SendToChain(uint16 srcChainId, bytes toAddress, uint256 qty, uint64 nonce)
 | qty  | uint256 | undefined |
 | nonce  | uint64 | undefined |
 
+### Test
+
+```solidity
+event Test(uint16 __mainChainId)
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| __mainChainId  | uint16 | undefined |
+
 ### Transfer
 
 ```solidity

@@ -4,11 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "compile": "npx hardhat compile",
-    "test": "npx hardhat test",
-    "testPool": "npx hardhat test ./test/Pool.test.js",
-    "testRouter": "npx hardhat test ./test/Router.test.js",
-    "testBridge": "npx hardhat test ./test/Bridge.test.js",
-    "testFactory": "npx hardhat test ./test/Factory.test.js"
+    "test": "npx hardhat test"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
@@ -28,7 +24,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.7.2",
-    "hardhat": "^2.8.0",
+    "hardhat": "^2.4.1",
     "hardhat-deploy": "^0.9.19",
     "hardhat-gas-reporter": "^1.0.7",
     "hardhat-spdx-license-identifier": "^2.0.0",
@@ -36,7 +32,8 @@
     "prettier-plugin-solidity": "^1.0.0-beta.18",
     "solhint": "^3.3.6",
     "solidity-coverage": "^0.7.17",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "solc": "0.8.0"
   },
   "dependencies": {
     "@layerzerolabs/lz-sdk": "^0.0.2",

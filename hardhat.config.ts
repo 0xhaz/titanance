@@ -20,7 +20,9 @@ import "hardhat-spdx-license-identifier";
 // const infuraProjectId = process.env.INFURA_PROJECT_ID;
 // console.log(`infuraProjectId: ${infuraProjectId}`);
 
-import "./tasks/deployToken";
+import "./deploy/deployToken";
+import "./tasks/tokens/sendTitananceToken"
+import "./tasks/tokens/setTrusts"
 
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more4
@@ -51,19 +53,24 @@ function accounts(chainKey: any=undefined) {
  */
 module.exports = {
     solidity: {
-        version: "0.7.6",
-        settings: {
-            optimizer: {
+        compilers: [
+          {
+            version: "0.8.0",
+            settings: {
+              optimizer: {
                 enabled: true,
-                runs: 200,
-            },
-        },
-    },
-    contractSizer: {
+                runs: 200
+              }
+            }
+          }
+        ]
+      },
+      contractSizer: {
         alphaSort: false,
         runOnCompile: true,
         disambiguatePaths: false,
-    },
+      },
+    
 
 
     // for hardhat-deploy

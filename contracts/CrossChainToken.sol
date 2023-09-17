@@ -1,10 +1,9 @@
-// SPDX-License-Identifier: BUSL-1.1
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0
 
-pragma solidity 0.7.6;
+import "./OFT.sol";
 
-import "./OmnichainFungibleToken.sol";
-
-contract TitananceToken is OmnichainFungibleToken {
+contract CrossChainToken is OmnichainFungibleToken {
     constructor(
         string memory _name,
         string memory _symbol,
