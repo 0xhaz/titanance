@@ -17,12 +17,8 @@ import "hardhat-deploy";
 import "hardhat-deploy-ethers";
 import "hardhat-spdx-license-identifier";
 
-// const infuraProjectId = process.env.INFURA_PROJECT_ID;
-// console.log(`infuraProjectId: ${infuraProjectId}`);
-
 import "./deploy/deployToken";
-import "./tasks/tokens/sendTitananceToken"
-import "./tasks/tokens/setTrusts"
+import "./tasks/tokens/sendCrossChainToken"
 
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more4
@@ -55,7 +51,7 @@ module.exports = {
     solidity: {
         compilers: [
           {
-            version: "0.8.0",
+            version: "0.8.17",
             settings: {
               optimizer: {
                 enabled: true,
@@ -77,15 +73,8 @@ module.exports = {
     namedAccounts: {
         deployer: 0,
     },
-
     defaultNetwork: "hardhat",
-
     networks: {
-        ethereum: {
-            url: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161", // public infura endpoint
-            chainId: 1,
-            accounts: accounts(),
-        },
         goerli: {
             url: "https://ethereum-goerli.publicnode.com", // public infura endpoint
             chainId: 5,
@@ -97,20 +86,20 @@ module.exports = {
             accounts: accounts(),
         },
         mumbai: {
-            url: "https://rpc-mumbai.maticvigil.com/",
+            url: "https://rpc.ankr.com/polygon_mumbai",
             chainId: 80001,
             accounts: accounts(),
         },
-        'arbitrum-rinkeby': {
-            url: `https://rinkeby.arbitrum.io/rpc`,
-            chainId: 421611,
+        'optimism-goerli': {
+            url: `https://optimism-goerli.publicnode.com`,
+            chainId: 420,
             accounts: accounts(),
         },
-        'optimism-kovan': {
-            url: `https://kovan.optimism.io/`,
-            chainId: 69,
+        'arbitrum-goerli': {
+            url: `https://rpc.goerli.arbitrum.gateway.fm`,
+            chainId: 421613 ,
             accounts: accounts(),
-        }
+        },
     },
     mocha: {
         timeout: 500000,

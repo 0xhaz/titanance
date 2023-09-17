@@ -1,4 +1,4 @@
-# OmnichainFungibleToken
+# CrossChainToken
 
 
 

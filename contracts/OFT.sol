@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0
+pragma solidity >=0.8.17;
 
 import "./lzApp/NonblockingLzApp.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -11,7 +11,7 @@ contract OmnichainFungibleToken is NonblockingLzApp, ERC20 {
         address _endpoint,
         uint256 _initialSupplyOnMainEndpoint
     ) NonblockingLzApp(_endpoint) ERC20(_name, _symbol) {
-        _mint(msg.sender, _initialSupplyOnMainEndpoint);
+        _mint(msg.sender, _initialSupplyOnMainEndpoint*10**decimals());
     }
 
     function _nonblockingLzReceive(uint16, bytes memory, uint64, bytes memory _payload) internal override {

@@ -1,4 +1,4 @@
-# IERC20
+# IERC20Metadata
 
 
 
@@ -6,7 +6,7 @@
 
 
 
-*Interface of the ERC20 standard as defined in the EIP.*
+*Interface for the optional metadata functions from the ERC20 standard. _Available since v4.1._*
 
 ## Methods
 
@@ -77,6 +77,57 @@ function balanceOf(address account) external view returns (uint256)
 | Name | Type | Description |
 |---|---|---|
 | _0 | uint256 | undefined
+
+### decimals
+
+```solidity
+function decimals() external view returns (uint8)
+```
+
+
+
+*Returns the decimals places of the token.*
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint8 | undefined
+
+### name
+
+```solidity
+function name() external view returns (string)
+```
+
+
+
+*Returns the name of the token.*
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
+
+### symbol
+
+```solidity
+function symbol() external view returns (string)
+```
+
+
+
+*Returns the symbol of the token.*
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### totalSupply
 
@@ -154,7 +205,7 @@ event Approval(address indexed owner, address indexed spender, uint256 value)
 
 
 
-*Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve}. `value` is the new allowance.*
+
 
 #### Parameters
 
@@ -172,7 +223,7 @@ event Transfer(address indexed from, address indexed to, uint256 value)
 
 
 
-*Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.*
+
 
 #### Parameters
 
