@@ -1,19 +1,23 @@
 Titanance.address in goerli: 0x5d1477Ea68bd8f52851597493e78b1Df0972a525
 Titanance.address in bsc-testnet: 0x7b71A2EA00EA3c84d0889e98B73839Ddeeed4Cbd
+Titanance.address in mumbai: 0xed452260487A49664aC52efA573496B8b4F32b84
 Titanance.address in optimism-goerli: 0x95294fB93C9a03885C8C7532da00DE177E30475a
 Titanance.address in arbitrum-goerli: 0x07130C5c38F5408868e7E51008381cB404fD2E95
 
-USDT.address in bsc-testnet: 0x1B209f83c73Fb67d98E49b22556842E6d058Ac2c
 USDT.address in goerli: 0xc245BEC4A844a72e2134AE60ebe0f0af754052b2
+USDT.address in bsc-testnet: 0x1B209f83c73Fb67d98E49b22556842E6d058Ac2c
+USDT.address in mumbai: 0x7b71A2EA00EA3c84d0889e98B73839Ddeeed4Cbd
 USDT.address in optimism-goerli: 0x7b71A2EA00EA3c84d0889e98B73839Ddeeed4Cbd
 USDT.address in arbitrum-goerli: 0xC69B946Bf7A2Ac9a23bfDfaAdf5d61a6b970792f
 
 USDC.address in goerli: 0xe378575Cb826132b17d7a49D4C331De19370112D
 USDC.address in bsc-testnet: 0x003c0246252b3b1d4f8F556Da1653ddDc6f9c8Eb
+USDC.address in mumbai: 0x737F608Bef88Ddfc02e082440E06bd1B5582b8de
 USDC.address in arbitrum-goerli: 0xb343803e1cf71256b22F6Db95b5b6bCA61108547
 USDC.address in optimism-goerli: 0x1B209f83c73Fb67d98E49b22556842E6d058Ac2c
 
-DAI.address in bsc-testnet: 0x16d088bb0A3Cbc645744017Fc722CD7E0C7F320c
 DAI.address in goerli: 0x84dA233aDF77b85d3D5a5Ff7E0d0A823E540664d
+DAI.address in bsc-testnet: 0x16d088bb0A3Cbc645744017Fc722CD7E0C7F320c
+DAI.address in mumbai: 0xf2DCf4f19870c37ec56f7f4201dE9341C09167eA
 DAI.address in optimism-goerli: 0x003c0246252b3b1d4f8F556Da1653ddDc6f9c8Eb
 DAI.address in arbitrum-goerli: 0xf2DCf4f19870c37ec56f7f4201dE9341C09167eA

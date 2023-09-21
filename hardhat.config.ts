@@ -86,7 +86,7 @@ module.exports = {
             accounts: accounts(),
         },
         mumbai: {
-            url: "https://rpc.ankr.com/polygon_mumbai",
+            url: "https://polygon-mumbai.blockpi.network/v1/rpc/public",
             chainId: 80001,
             accounts: accounts(),
         },

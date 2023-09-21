@@ -10,7 +10,7 @@ task("deployToken", "deploy a Cross Chain token")
     .addParam("name", "the token name", "Titanance")
     .addParam("symbol", "the symbol", "TI")
     .addParam("supply", "token supply", "1000000000")
-    .addParam("chain", "chain name", "goerli bsc-testnet optimism-goerli arbitrum-goerli")
+    .addParam("chain", "chain name", "goerli bsc-testnet mumbai optimism-goerli arbitrum-goerli")
     .setAction(async (taskArgs, hre: HardhatRuntimeEnvironment) => {
         const chains = taskArgs.chain.split(" ")
         //deploy tokens
@@ -71,7 +71,7 @@ task("deployToken", "deploy a Cross Chain token")
                 await(await tokenContract.trustAddress(
                     _otherContract.lzChainId,
                     _otherContract.contract,
-                    {gasLimit: 3000000, gasPrice: gas}
+                    {gasLimit: 10000000, gasPrice: Math.floor(Number(gas)*2)}
                 )).wait()
                 console.log(`set lzChainId ${_otherContract.lzChainId} lzContract ${_otherContract.contract} in ${chains[i]}`)
             }
