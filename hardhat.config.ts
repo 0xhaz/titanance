@@ -18,6 +18,8 @@ import "hardhat-deploy-ethers";
 import "hardhat-spdx-license-identifier";
 
 import "./deploy/deployToken";
+import "./deploy/deploySpot"
+
 import "./tasks/tokens/sendCrossChainToken"
 
 // You need to export an object to set up your config

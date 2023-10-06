@@ -10,9 +10,9 @@ task("deployToken", "deploy a Cross Chain token")
     .addParam("name", "the token name", "Titanance")
     .addParam("symbol", "the symbol", "TI")
     .addParam("supply", "token supply", "1000000000")
-    .addParam("chain", "chain name", "goerli bsc-testnet mumbai optimism-goerli arbitrum-goerli")
+    .addParam("chains", "chain name", "goerli,bsc-testnet,mumbai,optimism-goerli,arbitrum-goerli")
     .setAction(async (taskArgs, hre: HardhatRuntimeEnvironment) => {
-        const chains = taskArgs.chain.split(" ")
+        const chains = taskArgs.chains.split(",")
         //deploy tokens
         const contractsAddress = await Promise.all(chains.map(async (item: any, index: number) =>{
             const { url } = hre.config.networks[item] as any;
