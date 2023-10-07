@@ -27,6 +27,23 @@ function addToken(string token, address tokenAddress) external nonpayable
 | token | string | undefined
 | tokenAddress | address | undefined
 
+### chainId
+
+```solidity
+function chainId() external view returns (uint256)
+```
+
+
+
+
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
+
 ### completedOrder
 
 ```solidity
@@ -61,6 +78,89 @@ function depositToken(string inToken, uint256 amount) external nonpayable
 |---|---|---|
 | inToken | string | undefined
 | amount | uint256 | undefined
+
+### getChainId
+
+```solidity
+function getChainId() external view returns (uint256)
+```
+
+
+
+
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
+
+### getOrder
+
+```solidity
+function getOrder(string _id) external view returns (struct Spot.Order)
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| _id | string | undefined
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | Spot.Order | undefined
+
+### getTokenAddress
+
+```solidity
+function getTokenAddress(string token) external view returns (address)
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| token | string | undefined
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
+
+### getTokenBalance
+
+```solidity
+function getTokenBalance(string token) external view returns (uint256)
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| token | string | undefined
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### order
 
@@ -161,6 +261,22 @@ function tokens(string) external view returns (address)
 | Name | Type | Description |
 |---|---|---|
 | _0 | address | undefined
+
+### updateChainId
+
+```solidity
+function updateChainId(uint256 _chainId) external nonpayable
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| _chainId | uint256 | undefined
 
 ### withdrawToken
 
