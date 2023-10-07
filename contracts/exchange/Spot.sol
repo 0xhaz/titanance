@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.17;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Spot{
     uint256 public chainId;
@@ -61,7 +61,7 @@ contract Spot{
         uint256 swapRatio
     ) external onlyOwner{
         Order memory _order = orders[orderOwner][id];
-        withdrawToken(_order.outToken, _order.amount*swapRatio, orderOwner);
+        withdrawToken(_order.inToken, _order.outToken, _order.amount*swapRatio, orderOwner);
         delete orders[orderOwner][id];
         emit CompleteOrderEvent(_order);
     }
@@ -69,17 +69,18 @@ contract Spot{
 
     function depositToken(string memory inToken, uint256 amount) public {
         if(!isPrimaryCoin(inToken)){
-            IERC20  token = IERC20(tokens[inToken]);
+            ERC20 token = ERC20(tokens[inToken]);
             require(token.transferFrom(msg.sender, address(this), amount), "Token deposit failed");
         }
     }
 
-    function withdrawToken(string memory outToken, uint256 amount, address _to) public onlyOwner{
+    function withdrawToken(string memory inToken, string memory outToken, uint256 amount, address _to) public onlyOwner{
         if(isPrimaryCoin(outToken)){
             payable(_to).transfer(amount);
         }else{
-            IERC20  token = IERC20(tokens[outToken]);
-            require(token.transferFrom(address(this), _to, amount), "Token withdraw failed");
+            ERC20 tokenIn = ERC20(tokens[inToken]); 
+            ERC20 tokenOut = ERC20(tokens[outToken]);
+            require(tokenOut.transferFrom(address(this), _to, amount*tokenOut.decimals()/tokenIn.decimals()), "Token withdraw failed");
         }
     }
 

@@ -281,7 +281,7 @@ function updateChainId(uint256 _chainId) external nonpayable
 ### withdrawToken
 
 ```solidity
-function withdrawToken(string outToken, uint256 amount, address _to) external nonpayable
+function withdrawToken(string inToken, string outToken, uint256 amount, address _to) external nonpayable
 ```
 
 
@@ -292,6 +292,7 @@ function withdrawToken(string outToken, uint256 amount, address _to) external no
 
 | Name | Type | Description |
 |---|---|---|
+| inToken | string | undefined
 | outToken | string | undefined
 | amount | uint256 | undefined
 | _to | address | undefined

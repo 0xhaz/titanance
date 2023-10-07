@@ -5,6 +5,7 @@ import { HardhatRuntimeEnvironment } from "hardhat/types";
 const contractName = "Spot"
 
 task("deploySpot", "deploy Spot exchange")
+    .addParam("chainid", "chain id of network", "0")
     .addParam("tokens", "symbol of tokens", "BTC,TI")
     .addParam("address", "address of tokens", "0x,0x")
     .addParam("chains", "chain name", "goerli,bsc-testnet,mumbai,optimism-goerli,arbitrum-goerli")
@@ -26,6 +27,7 @@ task("deploySpot", "deploy Spot exchange")
             const { abi, bytecode } = await hre.artifacts.readArtifact(contractName);
             const factory = new ethers.ContractFactory(abi, bytecode, wallet);
             const contract = await factory.deploy(
+                taskArgs.chainid,
                 tokens,
                 tokenAddresses,
                 {gasLimit: 3000000, gasPrice: gas}
