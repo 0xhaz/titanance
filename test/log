@@ -26,6 +26,7 @@ DAI.address in arbitrum-goerli: 0xf2DCf4f19870c37ec56f7f4201dE9341C09167eA
 1Inch.address in mumbai: 0x2F53C78D644103FE98a2E258E8421eC18DE32122
 1Inch.address in arbitrum-goerli: 0xd6041e48db949e5f261DfF7B212dFea19389f0C0
 1Inch.address in goerli: 0x685655524eBB3fa67155Caa7d4FEa9f42bE21fEE
+1Inch.address in optimism-goerli: 0x496ED3C9195Bae2beBF9043D49d1C1Ed01E87a72
 
 Aave.address in bsc-testnet: 0x2D9Fcdf0226f96a0287B04faD829fb0716096208
 Aave.address in mumbai: 0x0EB998Dd6D01080Fd8717e4BAb05Ae33b826c059
@@ -81,7 +82,7 @@ Maker.address in mumbai: 0xfD056A588E8212d1558091c065E34525220a3886
 Maker.address in goerli: 0x0bA3De61A08CDFe457733F5f8F8Ac99979d5C802
 Maker.address in optimism-goerli: 0xB1D93d7fADee26f207f814E3D4b5D28e501D845e
 
-epe.address in bsc-testnet: 0xECEbd1C1719aE3b6d2f91c3ea1948622F3cDEb0B
+Pepe.address in bsc-testnet: 0xECEbd1C1719aE3b6d2f91c3ea1948622F3cDEb0B
 Pepe.address in arbitrum-goerli: 0x465C976C15aD91232Fc050B1C02dB91a9E07a3C8
 Pepe.address in mumbai: 0x8d28a8AbcBEe4a2B0584E323ce4f4b2fb663c0B9
 Pepe.address in goerli: 0x6709c5219a8650923169472971da4BB8168f501C
@@ -98,3 +99,6 @@ Uniswap.address in arbitrum-goerli: 0x512b16531F5831b2aC7b152ec5143951081548CE
 Uniswap.address in mumbai: 0xfbbA31314C753545dA9448c204751CfB78Cc6a10
 Uniswap.address in goerli: 0xbd2D9b2c876101a38049255346b8Ddf08879fEA8
 Uniswap.address in optimism-goerli: 0x512b16531F5831b2aC7b152ec5143951081548CE
+
+["0x160C2371EB879347D212DCDAA0120B18E4f49f7d","0xc245BEC4A844a72e2134AE60ebe0f0af754052b2"]
+["BTC","USDT"]

@@ -1,24 +1,22 @@
 import { task } from "hardhat/config"
 import { ethers } from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
+import { spotTokens } from "../constants/spot";
 
 const contractName = "Spot"
 
 task("deploySpot", "deploy Spot exchange")
     .addParam("chainid", "chain id of network", "0")
-    .addParam("tokens", "symbol of tokens", "BTC,TI")
-    .addParam("address", "address of tokens", "0x,0x")
+    // .addParam("tokens", "symbol of tokens", "BTC,TI")
+    // .addParam("address", "address of tokens", "0x,0x")
     .addParam("chains", "chain name", "goerli,bsc-testnet,mumbai,optimism-goerli,arbitrum-goerli")
     .setAction(async (taskArgs, hre: HardhatRuntimeEnvironment) => {
         const chains = taskArgs.chains.split(",")
-        const tokens = taskArgs.tokens.split(",")
-        const tokenAddresses = taskArgs.address.split(",")
         //deploy tokens
         const contractsAddress = await Promise.all(chains.map(async (item: any, index: number) =>{
-            const { url } = hre.config.networks[item] as any;
-            // const lzChainId = testnetAddress[item].chainId
-            // const lzEndpoint = testnetAddress[item].endpoint
-            // console.log(`  -> -> -> ${taskArgs.name} needs LayerZero: ${item} LayerZeroId: ${lzChainId} LayerZeroEndpoint: ${lzEndpoint}`)
+            const { chainId, url } = hre.config.networks[item] as any;
+            const tokens = spotTokens[chainId].map((item: any)=> item.symbol)
+            const tokenAddresses = spotTokens[chainId].map((item: any) => item.contract)
 
             const provider = new ethers.providers.JsonRpcProvider(url);
             const gas = await provider.getGasPrice()

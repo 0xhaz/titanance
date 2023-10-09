@@ -27,6 +27,22 @@ function addToken(string token, address tokenAddress) external nonpayable
 | token | string | undefined
 | tokenAddress | address | undefined
 
+### cancelOrder
+
+```solidity
+function cancelOrder(string id) external nonpayable
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| id | string | undefined
+
 ### chainId
 
 ```solidity
@@ -184,7 +200,7 @@ function order(string id, string inToken, string outToken, uint256 amount) exter
 ### orders
 
 ```solidity
-function orders(address, string) external view returns (string id, string inToken, string outToken, uint256 amount)
+function orders(address, string) external view returns (string id, address owner, string inToken, string outToken, uint256 amount)
 ```
 
 
@@ -203,6 +219,7 @@ function orders(address, string) external view returns (string id, string inToke
 | Name | Type | Description |
 |---|---|---|
 | id | string | undefined
+| owner | address | undefined
 | inToken | string | undefined
 | outToken | string | undefined
 | amount | uint256 | undefined
@@ -281,7 +298,7 @@ function updateChainId(uint256 _chainId) external nonpayable
 ### withdrawToken
 
 ```solidity
-function withdrawToken(string inToken, string outToken, uint256 amount, address _to) external nonpayable
+function withdrawToken(string outToken, uint256 amount, address _to) external nonpayable
 ```
 
 
@@ -292,7 +309,6 @@ function withdrawToken(string inToken, string outToken, uint256 amount, address 
 
 | Name | Type | Description |
 |---|---|---|
-| inToken | string | undefined
 | outToken | string | undefined
 | amount | uint256 | undefined
 | _to | address | undefined

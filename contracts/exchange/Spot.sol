@@ -2,8 +2,12 @@
 pragma solidity >=0.8.17;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 contract Spot{
+    using SafeERC20 for IERC20;
+
     uint256 public chainId;
     address public owner;
     mapping(string => address) public tokens;
@@ -14,6 +18,7 @@ contract Spot{
 
     struct Order{
         string id;
+        address owner;
         string inToken;
         string outToken;
         uint256 amount;
@@ -50,9 +55,17 @@ contract Spot{
         depositToken(inToken, amount);
 
         // create order
-        orders[msg.sender][id] = Order(id,inToken, outToken, amount);
+        orders[msg.sender][id] = Order(id, msg.sender, inToken, outToken, amount);
 
-        emit OrderEvent(Order(id,inToken, outToken, amount));
+        emit OrderEvent(Order(id, msg.sender, inToken, outToken, amount));
+    }
+
+    function cancelOrder(string memory id) public {
+        Order memory _order = orders[msg.sender][id];
+        require((msg.sender==_order.owner || msg.sender == owner), "Only owner can be cancel orders");
+        withdrawToken(_order.inToken, _order.amount, _order.owner);
+        delete orders[_order.owner][id];
+        emit CompleteOrderEvent(_order);
     }
 
     function completedOrder(
@@ -61,7 +74,7 @@ contract Spot{
         uint256 swapRatio
     ) external onlyOwner{
         Order memory _order = orders[orderOwner][id];
-        withdrawToken(_order.inToken, _order.outToken, _order.amount*swapRatio, orderOwner);
+        withdrawToken(_order.outToken, _order.amount*swapRatio/10**9, orderOwner);
         delete orders[orderOwner][id];
         emit CompleteOrderEvent(_order);
     }
@@ -74,13 +87,12 @@ contract Spot{
         }
     }
 
-    function withdrawToken(string memory inToken, string memory outToken, uint256 amount, address _to) public onlyOwner{
+    function withdrawToken(string memory outToken, uint256 amount, address _to) public onlyOwner{
         if(isPrimaryCoin(outToken)){
             payable(_to).transfer(amount);
         }else{
-            ERC20 tokenIn = ERC20(tokens[inToken]); 
-            ERC20 tokenOut = ERC20(tokens[outToken]);
-            require(tokenOut.transferFrom(address(this), _to, amount*tokenOut.decimals()/tokenIn.decimals()), "Token withdraw failed");
+            IERC20 tokenOut = IERC20(tokens[outToken]);
+            tokenOut.safeTransfer(_to, amount);
         }
     }
 
