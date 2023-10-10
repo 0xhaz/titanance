@@ -19,8 +19,10 @@ import "hardhat-spdx-license-identifier";
 
 import "./deploy/deployToken";
 import "./deploy/deploySpot"
+import "./tasks/spot/addLiquidity"
 
 import "./tasks/tokens/sendCrossChainToken"
+import "./tasks/spot/addToken"
 
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more4
