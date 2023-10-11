@@ -38,7 +38,7 @@ export const spotTokens = {
         },
         {
             symbol: "BAT",
-            contract: "0x160C2371EB879347D212DCDAA0120B18E4f49f7d",
+            contract: "0x413876cc6F94aa40f784d0e95D88F91976dc3B32",
             icon: eth,
             enable: true,
             mainToken: true
@@ -148,7 +148,7 @@ export const spotTokens = {
         },
         {
             symbol: "ARB",
-            contract: "0x5Ca36b44618001299B10fBC338DE751016c3D1B9",
+            contract: "0xE55e82ee1ace5d5c37CD8Ee3C98B436b47CA7c90",
             icon: eth,
             enable: true,
             mainToken: true
@@ -258,7 +258,7 @@ export const spotTokens = {
         },
         {
             symbol: "AAVE",
-            contract: "0xe9c59A9eFb1cD00B3b51dEabf4b1c5244499361a",
+            contract: "0x0EB998Dd6D01080Fd8717e4BAb05Ae33b826c059",
             icon: eth,
             enable: true,
             mainToken: true
@@ -375,7 +375,7 @@ export const spotTokens = {
         },
         {
             symbol: "AAVE",
-            contract: "0xF70259706A3b04Dbfee75b3D4E85B5CBd40e14a0",
+            contract: "0x3bB1795f0d7992928A17cdF6B1c12aa6032Bc774",
             icon: eth,
             enable: true,
             mainToken: true
@@ -396,7 +396,7 @@ export const spotTokens = {
         },
         {
             symbol: "BAT",
-            contract: "0x25674039F74dE4F499BD8FD78aCCCA725a957C1C",
+            contract: "0x73b0bd0F8FF22ae4efBA550D001Beb8371c2ff92",
             icon: eth,
             enable: true,
             mainToken: true
@@ -498,7 +498,7 @@ export const spotTokens = {
         },
         {
             symbol: "AAVE",
-            contract: "0xF70259706A3b04Dbfee75b3D4E85B5CBd40e14a0",
+            contract: "0x3bB1795f0d7992928A17cdF6B1c12aa6032Bc774",
             icon: eth,
             enable: true,
             mainToken: true
@@ -519,7 +519,7 @@ export const spotTokens = {
         },
         {
             symbol: "BAT",
-            contract: "0x25674039F74dE4F499BD8FD78aCCCA725a957C1C",
+            contract: "0x73b0bd0F8FF22ae4efBA550D001Beb8371c2ff92",
             icon: eth,
             enable: true,
             mainToken: true
